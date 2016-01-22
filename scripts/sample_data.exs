@@ -87,9 +87,9 @@ HexWeb.Repo.transaction(fn ->
     {:ok, _}   = Release.create(ecto, %{version: "0.1.3", app: "ecto", requirements: %{postgrex: "0.1.0", decimal: "0.0.2"}, meta: %{"app" => "ecto", "build_tools" => ["mix"]}}, SampleData.checksum("ecto 0.1.3"))
     {:ok, rel} = Release.create(ecto, %{version: "0.2.0", app: "ecto", requirements: %{postgrex: "~> 0.1.0", decimal: "~> 0.1.0"}, meta: %{"app" => "ecto", "build_tools" => ["mix"]}}, SampleData.checksum("ecto 0.2.0"))
 
-    yesterday = Ecto.Type.load!(Ecto.Date, HexWeb.Util.yesterday)
-    %Download{release_id: rel.id, downloads: 42, day: yesterday}
-    |> HexWeb.Repo.insert!
+    # yesterday = Ecto.Type.load!(Ecto.Date, HexWeb.Util.yesterday)
+    # %Download{release_id: rel.id, downloads: 42, day: yesterday}
+    # |> HexWeb.Repo.insert!
   end
 
   unless joe == nil do
@@ -106,13 +106,13 @@ HexWeb.Repo.transaction(fn ->
       {:ok, rel1}   = Release.create(ups, %{version: "0.0.1", app: "ups", meta: %{"app" => "ups", "build_tools" => ["mix"]}}, SampleData.checksum("ups 0.0.1"))
       {:ok, rel2} = Release.create(ups, %{version: "0.2.0", app: "ups", requirements: %{postgrex: "~> 0.1.0", decimal: "~> 0.1.0"}, meta: %{"app" => "ups", "build_tools" => ["mix"]}}, SampleData.checksum("ups 0.2.0"))
 
-      last_month = Ecto.Type.load!(Ecto.Date, SampleData.last_month)
-      %Download{release_id: rel1.id, downloads: div(index, 2), day: last_month}
-      |> HexWeb.Repo.insert!
-
-      yesterday = Ecto.Type.load!(Ecto.Date, HexWeb.Util.yesterday)
-      %Download{release_id: rel2.id, downloads: div(index, 2) + rem(index, 2), day: yesterday}
-      |> HexWeb.Repo.insert!
+      # last_month = Ecto.Type.load!(Ecto.Date, SampleData.last_month)
+      # %Download{release_id: rel1.id, downloads: div(index, 2), day: last_month}
+      # |> HexWeb.Repo.insert!
+      #
+      # yesterday = Ecto.Type.load!(Ecto.Date, HexWeb.Util.yesterday)
+      # %Download{release_id: rel2.id, downloads: div(index, 2) + rem(index, 2), day: yesterday}
+      # |> HexWeb.Repo.insert!
     end)
   end
 

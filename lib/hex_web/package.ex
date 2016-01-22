@@ -88,8 +88,8 @@ defmodule HexWeb.Package do
     |> update_change(:meta, &Map.take(&1, @meta_fields))
     |> validate_format(:name, ~r"^[a-z]\w*$")
     |> validate_exclusion(:name, @reserved_names)
-    |> validate_required_meta(:meta)
-    |> validate_meta(:meta)
+    # |> validate_required_meta(:meta)
+    # |> validate_meta(:meta)
   end
 
   defp rename_key(map, old_key, new_key) do
